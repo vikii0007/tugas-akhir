@@ -69,16 +69,17 @@
 
         .sidebar {
             width: 20%;
-            min-width: 250px;
             padding: 15px;
             background-color: #f1f1f1;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .content {
-            flex: 1;
-            min-width: 300px;
-            margin-left: 20px;
+            width: 70%;
+            padding: 15px;
+            background-color: #f1f1f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
         }
 
         .content h2 {
@@ -301,9 +302,9 @@
             <div class="stats">
                 <h3>STATISTIK HARI INI</h3>
                 <p>Anda pengunjung ke:</p>
-                <h1>1</h1>
-                <p>Total hari ini: 10</p>
-                <p>Total bulan ini: 10</p>
+                <h1><?= $pengunjungKe; ?></h1>
+                <p>Total hari ini: <?= $totalHariIni; ?></p>
+                <p>Total bulan ini: <?= $totalBulanIni; ?></p>
             </div>
 
             <div class="calendar">
@@ -345,53 +346,20 @@
         </div>
 
         <script>
-            // Data Buku (Simulasi)
-            const books = [{
-                    id: 1,
-                    judul: "Pemrograman Dasar",
-                    pengarang: "John Doe",
-                    tahun_terbit: "2020",
-                    isbn: "1234567890",
-                    kategori: "Teknologi",
-                    deskripsi: "Buku pemrograman untuk pemula."
-                },
-                {
-                    id: 2,
-                    judul: "Desain Grafis",
-                    pengarang: "Jane Smith",
-                    tahun_terbit: "2018",
-                    isbn: "0987654321",
-                    kategori: "Seni",
-                    deskripsi: "Panduan desain grafis modern."
-                },
-                {
-                    id: 3,
-                    judul: "Filsafat Ilmu",
-                    pengarang: "Albert Camus",
-                    tahun_terbit: "2015",
-                    isbn: "1122334455",
-                    kategori: "Filsafat",
-                    deskripsi: "Pembahasan mendalam tentang filsafat ilmu."
-                },
-                {
-                    id: 4,
-                    judul: "Sejarah Dunia",
-                    pengarang: "Howard Zinn",
-                    tahun_terbit: "2021",
-                    isbn: "6677889900",
-                    kategori: "Sejarah",
-                    deskripsi: "Buku referensi sejarah dunia."
-                },
-            ];
+            // Data buku diambil dari PHP
+            const books = <?= json_encode($dataBuku); ?>;
 
             // Fungsi untuk render data ke tabel
             function renderTable(data) {
                 const tbody = document.querySelector("#book-table tbody");
                 tbody.innerHTML = ""; // Hapus isi sebelumnya
-                data.forEach((book) => {
-                    const row = `
+                if (data.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center;">Tidak ada data buku</td></tr>`;
+                } else {
+                    data.forEach((book) => {
+                        const row = `
                 <tr>
-                    <td>${book.id}</td>
+                    <td>${book.id_buku}</td>
                     <td>${book.judul}</td>
                     <td>${book.pengarang}</td>
                     <td>${book.tahun_terbit}</td>
@@ -399,9 +367,10 @@
                     <td>${book.kategori}</td>
                     <td>${book.deskripsi}</td>
                 </tr>
-            `;
-                    tbody.insertAdjacentHTML("beforeend", row);
-                });
+                `;
+                        tbody.insertAdjacentHTML("beforeend", row);
+                    });
+                }
             }
 
             // Fungsi pencarian
@@ -409,7 +378,7 @@
                 const filtered = books.filter((book) =>
                     book.judul.toLowerCase().includes(keyword.toLowerCase()) ||
                     book.pengarang.toLowerCase().includes(keyword.toLowerCase()) ||
-                    book.isbn.includes(keyword) ||
+                    book.isbn.toLowerCase().includes(keyword.toLowerCase()) ||
                     book.kategori.toLowerCase().includes(keyword.toLowerCase())
                 );
                 renderTable(filtered);

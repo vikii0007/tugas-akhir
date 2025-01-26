@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,7 +94,9 @@
             margin-bottom: 5px;
         }
 
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
@@ -114,28 +117,40 @@
         .stats {
             text-align: center;
             margin-bottom: 20px;
-            padding-bottom:10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Tambahkan shadow lembut */
+            padding-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+            /* Tambahkan shadow lembut */
         }
 
         .stats h3 {
-            text-align: left; /* Rata kiri */
-            text-transform: uppercase; /* Huruf besar */
-            background-color: blue; /* Latar belakang biru */
-            color: white; /* Teks putih agar kontras */
-            padding: 15px; /* Tambahkan padding untuk estetika */
-            border-radius: 5px; /* Opsional: membuat sudut agak melengkung */
+            text-align: left;
+            /* Rata kiri */
+            text-transform: uppercase;
+            /* Huruf besar */
+            background-color: blue;
+            /* Latar belakang biru */
+            color: white;
+            /* Teks putih agar kontras */
+            padding: 15px;
+            /* Tambahkan padding untuk estetika */
+            border-radius: 5px;
+            /* Opsional: membuat sudut agak melengkung */
             margin-bottom: 20px;
         }
 
         .calendar {
             margin-top: 20px;
             text-align: center;
-            background-color: white; /* Latar belakang putih */
-            padding: 15px; /* Tambahkan padding */
-            border-radius: 8px; /* Membuat sudut melengkung */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Tambahkan shadow lembut */
-            border: 1px solid #ddd; /* Opsional: menambahkan border tipis */
+            background-color: white;
+            /* Latar belakang putih */
+            padding: 15px;
+            /* Tambahkan padding */
+            border-radius: 8px;
+            /* Membuat sudut melengkung */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+            /* Tambahkan shadow lembut */
+            border: 1px solid #ddd;
+            /* Opsional: menambahkan border tipis */
         }
 
         .calendar .calendar-header {
@@ -148,32 +163,41 @@
         .calendar table {
             width: 100%;
             border-collapse: collapse;
-            table-layout: fixed; /* Memastikan kolom memiliki lebar tetap */
+            table-layout: fixed;
+            /* Memastikan kolom memiliki lebar tetap */
         }
 
-        .calendar th, .calendar td {
+        .calendar th,
+        .calendar td {
             border: 1px solid #ddd;
-            padding: 8px;
             text-align: center;
-            word-wrap: break-word; /* Menghindari overflow teks */
+            word-wrap: break-word;
+            /* Menghindari overflow teks */
         }
 
         .calendar h3 {
-            text-transform: uppercase; /* Huruf kapital semua */
-            background-color: blue; /* Latar belakang biru */
-            color: white; /* Teks putih */
+            text-transform: uppercase;
+            /* Huruf kapital semua */
+            background-color: blue;
+            /* Latar belakang biru */
+            color: white;
+            /* Teks putih */
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 15px;
-            font-size: 1rem; /* Ukuran teks */
+            font-size: 1rem;
+            /* Ukuran teks */
         }
 
         .calendar th {
-            font-size: 0.5rem; /* Memperkecil ukuran nama hari */
-            background-color: #f44336; /* Tetap merah untuk kolom header tabel */
+            font-size: 0.5rem;
+            /* Memperkecil ukuran nama hari */
+            background-color: #f44336;
+            /* Tetap merah untuk kolom header tabel */
             color: white;
             padding: 5px;
-            border-radius: 0; /* Tidak melengkung */
+            border-radius: 0;
+            /* Tidak melengkung */
         }
 
 
@@ -188,6 +212,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <img src="logo.png" alt="Logo">
@@ -198,9 +223,9 @@
     </div>
 
     <div class="menu">
-        <a href="<?= base_url('/');?>">Beranda</a>
-        <a href="<?= base_url('/profil');?>">Profil Perpustakaan</a>
-        <a href="<?= base_url('/cari-buku');?>">Cari Buku</a>
+        <a href="<?= base_url('/'); ?>">Beranda</a>
+        <a href="<?= base_url('/profil'); ?>">Profil Perpustakaan</a>
+        <a href="<?= base_url('/cari-buku'); ?>">Cari Buku</a>
     </div>
 
     <div class="container">
@@ -208,9 +233,9 @@
             <div class="stats">
                 <h3>STATISTIK HARI INI</h3>
                 <p>Anda pengunjung ke:</p>
-                <h1>1</h1>
-                <p>Total hari ini: 10</p>
-                <p>Total bulan ini: 10</p>
+                <h1><?= $pengunjungKe; ?></h1>
+                <p>Total hari ini: <?= $totalHariIni; ?></p>
+                <p>Total bulan ini: <?= $totalBulanIni; ?></p>
             </div>
 
             <div class="calendar">
@@ -229,36 +254,53 @@
         <div class="content">
             <h2>Selamat Datang di Perpustakaan ADP</h2>
             <p>Silakan masukkan data kunjungan Anda sebelum masuk ke perpustakaan. Terima kasih.</p>
+            <?php if (session()->has('success')): ?>
+                <div style="color: green; margin-bottom: 15px;">
+                    <?= session('success'); ?>
+                </div>
+            <?php endif; ?>
 
-            <form>
+            <?php if (session()->has('errors')): ?>
+                <div style="color: red; margin-bottom: 15px;">
+                    <?= implode('<br>', session('errors')); ?>
+                </div>
+            <?php endif; ?>
+
+            <form action="<?= base_url('/pengunjung/tambah'); ?>" method="POST">
                 <div class="form-group">
                     <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama">
+                    <input type="text" placeholder="Masukan nama..." id="nama" name="nama" required>
                 </div>
 
                 <div class="form-group">
                     <label for="jenis-kelamin">Jenis Kelamin:</label>
-                    <select id="jenis-kelamin" name="jenis-kelamin">
-                        <option value="pria">Laki-Laki</option>
-                        <option value="wanita">Perempuan</option>
+                    <select id="jenis-kelamin" name="jk" required>
+                        <option value="L">Laki-Laki</option>
+                        <option value="P">Perempuan</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="jenis-anggota">Jenis Anggota:</label>
-                    <select id="jenis-anggota" name="jenis-anggota">
-                        <option value="pelajar">Dosen</option>
-                        <option value="mahasiswa">Mahasiswa</option>
+                    <select id="jenis-anggota" name="jenis" required>
+                        <option value="Dosen">Dosen</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="keperluan">Keperluan:</label>
-                    <textarea id="keperluan" name="keperluan"></textarea>
+                    <label for="keperluan">Patu/Keperluan:</label>
+                    <textarea id="keperluan" placeholder="Masukan keperluan.." name="patu" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="saran">Saran:</label>
+                    <textarea id="saran" placeholder="Masukan saran.." name="saran"></textarea>
                 </div>
 
                 <button type="submit" class="btn">Absensi Kunjungan</button>
             </form>
+
         </div>
     </div>
 
@@ -266,12 +308,20 @@
         function generateCalendar(year, month) {
             const calendarBody = document.getElementById('calendar-body');
             const currentMonth = document.getElementById('current-month');
+            const today = new Date();
+            const todayDate = today.getDate();
+            const todayMonth = today.getMonth();
+            const todayYear = today.getFullYear();
+
             const date = new Date(year, month, 1);
             const lastDay = new Date(year, month + 1, 0).getDate();
             const startDay = date.getDay();
 
             // Update current month
-            currentMonth.textContent = date.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+            currentMonth.textContent = date.toLocaleDateString('id-ID', {
+                month: 'long',
+                year: 'numeric'
+            });
 
             // Clear previous calendar
             calendarBody.innerHTML = '';
@@ -296,6 +346,18 @@
             for (let day = 1; day <= lastDay; day++) {
                 const cell = document.createElement('td');
                 cell.textContent = day;
+
+                // Highlight tanggal hari ini
+                if (day === todayDate && month === todayMonth && year === todayYear) {
+                    cell.style.backgroundColor = '#f44336'; // Warna latar untuk tanggal hari ini
+                    cell.style.color = 'white'; // Warna teks
+                    cell.style.fontWeight = 'bold'; // Teks tebal
+                    cell.title = 'Hari ini'; // Tooltip
+                }
+
+                // Tambahkan event listener untuk memilih tanggal
+                cell.addEventListener('click', () => selectDate(year, month, day, cell));
+
                 row.appendChild(cell);
 
                 if ((startDay + day) % 7 === 0 || day === lastDay) {
@@ -305,6 +367,25 @@
             }
 
             calendarBody.appendChild(table);
+        }
+
+        function selectDate(year, month, day, cell) {
+            const selectedDate = new Date(year, month, day);
+            const formattedDate = selectedDate.toLocaleDateString('id-ID', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+
+            // Tampilkan tanggal yang dipilih di bawah kalender
+            document.getElementById('selected-date').textContent = `Tanggal yang dipilih: ${formattedDate}`;
+
+            // Hapus kelas "selected" dari semua sel
+            const allCells = document.querySelectorAll('.calendar td');
+            allCells.forEach(c => c.classList.remove('selected'));
+
+            // Tambahkan kelas "selected" ke sel yang dipilih
+            cell.classList.add('selected');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -333,5 +414,7 @@
             });
         });
     </script>
+
 </body>
+
 </html>

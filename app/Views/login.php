@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kode Akses</title>
+  <title>LOGIN ADMIN</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -25,12 +25,16 @@
 <body>
   <div class="card shadow">
     <div class="card-body">
-      <h5 class="card-title text-center mb-4">Masukkan Kode Akses</h5>
+      <h5 class="card-title text-center mb-4">Login Petugas Perpustakan</h5>
       <!-- Form Kode Akses -->
-      <form action="<?= base_url('validateAccessCode'); ?>" method="post">
+      <form action="<?= base_url('masuk'); ?>" method="post">
         <div class="mb-3">
-          <label for="access_code" class="form-label">Kode Akses</label>
-          <input type="password" name="access_code" class="form-control" id="access_code" placeholder="Masukkan Kode Akses" required>
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" id="username" placeholder="Masukkan Username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan Password" required>
         </div>
         <?php if (session()->getFlashdata('error')): ?>
           <div class="alert alert-danger"><?= session()->getFlashdata('error'); ?></div>

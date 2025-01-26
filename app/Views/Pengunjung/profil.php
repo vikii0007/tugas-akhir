@@ -234,9 +234,9 @@
             <div class="stats">
                 <h3>STATISTIK HARI INI</h3>
                 <p>Anda pengunjung ke:</p>
-                <h1>1</h1>
-                <p>Total hari ini: 10</p>
-                <p>Total bulan ini: 10</p>
+                <h1><?= $pengunjungKe; ?></h1>
+                <p>Total hari ini: <?= $totalHariIni; ?></p>
+                <p>Total bulan ini: <?= $totalBulanIni; ?></p>
             </div>
 
             <div class="calendar">
